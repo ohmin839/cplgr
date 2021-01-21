@@ -50,3 +50,9 @@ bin/plgrconv: bin/parser.o bin/lexer.o bin/mapping.o
 
 .PHONY: build
 build: bin/plgrconv
+
+.PHONY: install
+install: build
+	test -d ${HOME}/.local/bin && mkdir -p ${HOME}/.local/bin
+	cp bin/plgrconv ${HOME}/.local/bin/
+
