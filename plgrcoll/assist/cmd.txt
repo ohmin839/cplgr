@@ -1,0 +1,1 @@
+cat assist/xxx.txt | plgrconv | bin/utf8conv | sort | tr '\n' '|'
