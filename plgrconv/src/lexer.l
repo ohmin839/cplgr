@@ -72,7 +72,7 @@ X {
     yylval.pc = create_chunk("\u039E");
     return LARGE_XI;
 }
-Ph? {
+P[hs]? {
     yylval.pc = convert_to_large_pi(yytext);
     return LARGE_PI;
 }
@@ -154,7 +154,7 @@ x {
     yylval.pc = create_chunk("\u03BE");
     return SMALL_XI;
 }
-ph? {
+p[hs]? {
     yylval.pc = convert_to_small_pi(yytext);
     return SMALL_PI;
 }
