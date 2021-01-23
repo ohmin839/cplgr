@@ -203,14 +203,14 @@ th? {
     yylval.pc = create_chunk(yytext);
     return WHITESPACE;
 }
-\r?\n {
-    yylval.pc = create_chunk(yytext);
-    return NEWLINE;
-}
 \\. {
     char str[] = { yytext[1], '\0' };
     yylval.pc = create_chunk(str);
     return ESCAPE;
+}
+\r?\n {
+    yylval.pc = create_chunk(yytext);
+    return NEWLINE;
 }
 
 . ;

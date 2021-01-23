@@ -65,8 +65,8 @@ int yyerror(char *s);
 %token <pc> LGUILLEMET
 %token <pc> RGUILLEMET
 %token <pc> WHITESPACE
-%token <pc> NEWLINE
 %token <pc> ESCAPE
+%token <pc> NEWLINE
 
 %type <pc> letters
 %type <pc> letter
@@ -80,7 +80,23 @@ int yyerror(char *s);
 %%
 
 text:
-    | letters
+    | lines
+    ;
+
+lines:
+    lines line
+    | line
+    ;
+
+line:
+    letters NEWLINE
+    {
+        print_chunk($1);
+        print_chunk($2);
+        free_chunk($1);
+        free_chunk($2);
+    }
+    | NEWLINE
     {
         print_chunk($1);
         free_chunk($1);
@@ -246,7 +262,6 @@ otherwise_char:
     | LGUILLEMET
     | RGUILLEMET
     | WHITESPACE
-    | NEWLINE
     | ESCAPE
     ;
 
