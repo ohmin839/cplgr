@@ -24,7 +24,7 @@ WORD_NODE *create_word_node(char* token)
     WORD_NODE *p = malloc(sizeof(WORD_NODE));
 
     size_t len = strlen(token);
-    p->v = malloc(len+1);
+    p->v = malloc(sizeof(char) *(len+1));
     strcpy(p->v, token);
 
     p->n = NULL;

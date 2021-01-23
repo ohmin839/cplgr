@@ -79,7 +79,7 @@ PARSED_CHUNK *create_chunk(char* str)
     PARSED_CHUNK *pc = malloc(sizeof(PARSED_CHUNK));
 
     size_t len = strlen(str);
-    pc->v = malloc(len+1);
+    pc->v = malloc(sizeof(char) * (len+1));
     strcpy(pc->v, str);
 
     pc->n = NULL;
