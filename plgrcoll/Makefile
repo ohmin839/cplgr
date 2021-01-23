@@ -6,6 +6,13 @@ init:
 clean:
 	rm -fR ./bin/*
 
+bin/action.o: src/action.c
+	gcc \
+		-I./src \
+		-fPIC \
+		./src/action.c \
+		-c -o./bin/action.o
+
 bin/lexer.o: src/lexer.l
 	flex -osrc/lexer.c src/lexer.l
 	gcc \
@@ -20,9 +27,10 @@ bin/utf8conv: assist/utf8conv.c
 		./assist/utf8conv.c \
 		-o./bin/utf8conv
 
-bin/plgrcoll: bin/lexer.o
+bin/plgrcoll: bin/action.o bin/lexer.o
 	gcc -I./src \
 		-fPIC \
+		./bin/action.o \
 		./bin/lexer.o \
 		-o./bin/plgrcoll \
 		-lfl

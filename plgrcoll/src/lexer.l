@@ -1,6 +1,7 @@
 %{
-#include <stdio.h>
-#include <string.h>
+#include "action.h"
+
+WORD_NODE *head = NULL;
 %}
 
 LARGE_ALPHA \xCE\x91|\xE1\xBC\x88|\xE1\xBC\x89|\xE1\xBC\x8A|\xE1\xBC\x8B|\xE1\xBC\x8C|\xE1\xBC\x8D|\xE1\xBC\x8E|\xE1\xBC\x8F|\xE1\xBE\x88|\xE1\xBE\x89|\xE1\xBE\x8A|\xE1\xBE\x8B|\xE1\xBE\x8B|\xE1\xBE\x8C|\xE1\xBE\x8D|\xE1\xBE\x8E|\xE1\xBE\xBA|\xE1\xBE\xBB|\xE1\xBE\xBC
@@ -48,7 +49,11 @@ WORD {ALPHABET}+{APOSTROPH}?
 %%
 
 {WORD} {
-    printf("%s\n", yytext);
+    if (head == NULL) {
+        head = create_word_node(yytext);
+    } else {
+        add_word_node(head, yytext);
+    }
 }
 
 \n|. ;
@@ -58,6 +63,8 @@ WORD {ALPHABET}+{APOSTROPH}?
 int main(void)
 {
 	yylex();
+    print_word_node(head);
+    free_word_node(head);
     return 0;
 }
 
