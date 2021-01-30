@@ -199,6 +199,10 @@ th? {
     yylval.pc = create_chunk("\u00BB");
     return RGUILLEMET;
 }
+-- {
+    yylval.pc = create_chunk("\u2014");
+    return EMDASH;
+}
 
 \r?\n {
     yylval.pc = create_chunk(yytext);

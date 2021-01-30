@@ -64,6 +64,8 @@ int yyerror(char *s);
 %token <pc> APOSTROPH
 %token <pc> LGUILLEMET
 %token <pc> RGUILLEMET
+%token <pc> EMDASH
+
 %token <pc> OTHERS
 %token <pc> NEWLINE
 
@@ -261,6 +263,7 @@ punctuation:
     | APOSTROPH
     | LGUILLEMET
     | RGUILLEMET
+    | EMDASH
     ;
 
 %%
