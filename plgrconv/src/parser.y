@@ -64,8 +64,7 @@ int yyerror(char *s);
 %token <pc> APOSTROPH
 %token <pc> LGUILLEMET
 %token <pc> RGUILLEMET
-%token <pc> WHITESPACE
-%token <pc> ESCAPE
+%token <pc> OTHERS
 %token <pc> NEWLINE
 
 %type <pc> letters
@@ -75,7 +74,7 @@ int yyerror(char *s);
 %type <pc> large_nasable_gamma
 %type <pc> small_nasable_gamma
 %type <pc> single_alphabet
-%type <pc> otherwise_char
+%type <pc> punctuation
 
 %%
 
@@ -114,7 +113,8 @@ letters:
 
 letter:
     alphabet
-    | otherwise_char
+    | punctuation
+    | OTHERS
     ;
 
 alphabet:
@@ -253,7 +253,7 @@ single_alphabet:
     | SMALL_TAU
     ;
 
-otherwise_char:
+punctuation:
     COMMA
     | SEMICORON
     | PERIOD
@@ -261,8 +261,6 @@ otherwise_char:
     | APOSTROPH
     | LGUILLEMET
     | RGUILLEMET
-    | WHITESPACE
-    | ESCAPE
     ;
 
 %%

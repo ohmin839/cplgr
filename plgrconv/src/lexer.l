@@ -199,21 +199,17 @@ th? {
     yylval.pc = create_chunk("\u00BB");
     return RGUILLEMET;
 }
-[ \t]+ {
-    yylval.pc = create_chunk(yytext);
-    return WHITESPACE;
-}
-\\. {
-    char str[] = { yytext[1], '\0' };
-    yylval.pc = create_chunk(str);
-    return ESCAPE;
-}
+
 \r?\n {
     yylval.pc = create_chunk(yytext);
     return NEWLINE;
 }
 
-. ;
+. {
+    yylval.pc = create_chunk(yytext);
+    return OTHERS;
+}
+
 
 %%
 
