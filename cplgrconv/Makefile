@@ -39,20 +39,20 @@ bin/test: test/test_unichar.c bin/mapping.o
 .PHONY: test
 test: bin/test
 
-bin/plgrconv: bin/parser.o bin/lexer.o bin/mapping.o
+bin/cplgrconv: bin/parser.o bin/lexer.o bin/mapping.o
 	gcc -I./src \
 		-fPIC \
 		./bin/parser.o \
 		./bin/lexer.o \
 		./bin/mapping.o \
-		-o./bin/plgrconv \
+		-o./bin/cplgrconv \
 		-lfl -ly
 
 .PHONY: build
-build: bin/plgrconv
+build: bin/cplgrconv
 
 .PHONY: install
 install: build
 	test -d ${HOME}/.local/bin && mkdir -p ${HOME}/.local/bin
-	cp bin/plgrconv ${HOME}/.local/bin/
+	cp bin/cplgrconv ${HOME}/.local/bin/
 

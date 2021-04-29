@@ -27,19 +27,19 @@ bin/utf8conv: assist/utf8conv.c
 		./assist/utf8conv.c \
 		-o./bin/utf8conv
 
-bin/plgrcoll: bin/action.o bin/lexer.o
+bin/cplgrcoll: bin/action.o bin/lexer.o
 	gcc -I./src \
 		-fPIC \
 		./bin/action.o \
 		./bin/lexer.o \
-		-o./bin/plgrcoll \
+		-o./bin/cplgrcoll \
 		-lfl
 
 .PHONY: build
-build: bin/plgrcoll
+build: bin/cplgrcoll
 
 .PHONY: install
 install: build
 	test -d ${HOME}/.local/bin && mkdir -p ${HOME}/.local/bin
-	cp bin/plgrcoll ${HOME}/.local/bin/
+	cp bin/cplgrcoll ${HOME}/.local/bin/
 
