@@ -2,15 +2,15 @@
 **cplgr** is a text processor for texts in polytonic Greek.\
 **CAUTION: this is a work in progress.**
 
-## plgrconv
+## cplgrconv
 ```
-$ echo ">anthr^opos" | plgrconv
+$ echo ">anthr^opos" | cplgrconv
 ἄνθρωπος
 ```
 
-## plgrcoll
+## cplgrcoll
 ```
-$ cat alpha.txt | plgrconv | plgrcoll
+$ cat alpha.txt | cplgrconv | cplgrcoll
 Πάντες
 ἄνθρωποι
 τοῦ
