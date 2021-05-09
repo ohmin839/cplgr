@@ -1,9 +1,6 @@
-.PHONY: init
-init:
-	test -d ./bin || mkdir ./bin
-
 .PHONY: clean
 clean:
+	test -d ./bin || mkdir ./bin
 	rm -fR ./bin/*
 
 bin/mapping.o: src/mapping.c src/mapping.h
@@ -53,6 +50,4 @@ build: bin/cplgrconv
 
 .PHONY: install
 install: build
-	test -d ${HOME}/.local/bin && mkdir -p ${HOME}/.local/bin
-	cp bin/cplgrconv ${HOME}/.local/bin/
-
+	test -z ${INSTALL_DIR} || cp bin/cplgrconv ${INSTALL_DIR}/bin/

@@ -1,9 +1,6 @@
-.PHONY: init
-init:
-	test -d ./bin || mkdir ./bin
-
 .PHONY: clean
 clean:
+	test -d ./bin || mkdir ./bin
 	rm -fR ./bin/*
 
 bin/action.o: src/action.c
@@ -40,6 +37,4 @@ build: bin/cplgrcoll
 
 .PHONY: install
 install: build
-	test -d ${HOME}/.local/bin && mkdir -p ${HOME}/.local/bin
-	cp bin/cplgrcoll ${HOME}/.local/bin/
-
+	test -z ${INSTALL_DIR} || cp bin/cplgrcoll ${INSTALL_DIR}/bin/
