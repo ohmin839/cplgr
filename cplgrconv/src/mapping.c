@@ -5,14 +5,14 @@
 
 #include "mapping.h"
 
-bool includes_char(char* token, char target);
-int add_score_iota_subscriptum(char* token, int score);
-int add_score_accent(char* token, int score);
-int add_score_breath(char* token, int score);
-int add_score_dialesis(char* token, int score);
-int calc_score(char* token);
+static bool includes_char(char* token, char target);
+static int add_score_iota_subscriptum(char* token, int score);
+static int add_score_accent(char* token, int score);
+static int add_score_breath(char* token, int score);
+static int add_score_dialesis(char* token, int score);
+static int calc_score(char* token);
 
-bool includes_char(char* token, char target)
+static bool includes_char(char* token, char target)
 {
     size_t l = strlen(token);
     for (int i = 0; i < l; i++) {
@@ -23,7 +23,7 @@ bool includes_char(char* token, char target)
     return false;
 }
 
-int add_score_iota_subscriptum(char* token, int score)
+static int add_score_iota_subscriptum(char* token, int score)
 {
     if (includes_char(token, '|')) {
         return score + 1;
@@ -32,7 +32,7 @@ int add_score_iota_subscriptum(char* token, int score)
     }
 }
 
-int add_score_accent(char* token, int score)
+static int add_score_accent(char* token, int score)
 {
     if (includes_char(token, '\'')) { // acute
         return score + 4;
@@ -45,7 +45,7 @@ int add_score_accent(char* token, int score)
     }
 }
 
-int add_score_breath(char* token, int score)
+static int add_score_breath(char* token, int score)
 {
     if (includes_char(token, '<')) { // breathful
         return score + 16;
@@ -57,7 +57,7 @@ int add_score_breath(char* token, int score)
 
 }
 
-int add_score_dialesis(char* token, int score)
+static int add_score_dialesis(char* token, int score)
 {
     if (includes_char(token, '"')) {
         return score + 64;
@@ -66,7 +66,7 @@ int add_score_dialesis(char* token, int score)
     }
 }
 
-int calc_score(char* token)
+static int calc_score(char* token)
 {
     return add_score_iota_subscriptum(token,
             add_score_accent(token,

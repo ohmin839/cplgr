@@ -1,9 +1,6 @@
 #if !defined(PLGR_MAPPING_H)
 #define PLGR_MAPPING_H
 
-#include <stdlib.h>
-#include <string.h>
-
 typedef struct parsed_chunk {
     char *v;
     struct parsed_chunk *n;
