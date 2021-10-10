@@ -5,12 +5,12 @@
 #include "mapping.h"
 
 int yylex(void);
-int yyerror(char *s);
+int yyerror(char* s);
 %}
 
 
 %union {
-    PARSED_CHUNK *pc;
+    PARSED_CHUNK* pc;
 }
 
 %token <pc> LARGE_ALPHA
@@ -268,7 +268,7 @@ punctuation:
 
 %%
 
-extern FILE *yyin;
+extern FILE* yyin;
 
 int main(void)
 {
@@ -278,7 +278,7 @@ int main(void)
     return 0;
 }
 
-int yyerror(char *s)
+int yyerror(char* s)
 {
     fprintf(stderr, "%s\n", s);
     return 0;

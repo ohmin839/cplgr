@@ -3,15 +3,15 @@
 #include <string.h>
 #include "action.h"
 
-void add_word_node(WORD_NODE *head, char* token)
+void add_word_node(WORD_NODE* head, char* token)
 {
-    WORD_NODE *p = head;
+    WORD_NODE* p = head;
     while(p != NULL) {
         if (strcmp(p->v, token) == 0) {
             return;
         }
         if (p->n == NULL) {
-            WORD_NODE *np = create_word_node(token);
+            WORD_NODE* np = create_word_node(token);
             p->n = np;
             return;
         }
@@ -19,9 +19,9 @@ void add_word_node(WORD_NODE *head, char* token)
     }
 }
 
-WORD_NODE *create_word_node(char* token)
+WORD_NODE* create_word_node(char* token)
 {
-    WORD_NODE *p = malloc(sizeof(WORD_NODE));
+    WORD_NODE* p = malloc(sizeof(WORD_NODE));
 
     size_t len = strlen(token);
     p->v = malloc(sizeof(char) *(len+1));
@@ -32,19 +32,19 @@ WORD_NODE *create_word_node(char* token)
     return p;
 }
 
-void print_word_node(WORD_NODE *head)
+void print_word_node(WORD_NODE* head)
 {
-    WORD_NODE *p = head;
+    WORD_NODE* p = head;
     while(p != NULL) {
         printf("%s\n", p->v);
         p = p->n;
     }
 }
 
-void free_word_node(WORD_NODE *head)
+void free_word_node(WORD_NODE* head)
 {
-    WORD_NODE *p = head;
-    WORD_NODE *np;
+    WORD_NODE* p = head;
+    WORD_NODE* np;
     while(p != NULL) {
         np = p->n;
         free(p->v);

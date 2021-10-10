@@ -74,7 +74,7 @@ static int calc_score(char* token)
                     add_score_dialesis(token, 0))));
 }
 
-PARSED_CHUNK *create_chunk(char* str)
+PARSED_CHUNK* create_chunk(char* str)
 {
     PARSED_CHUNK *pc = malloc(sizeof(PARSED_CHUNK));
 
@@ -87,7 +87,7 @@ PARSED_CHUNK *create_chunk(char* str)
     return pc;
 }
 
-void print_chunk(PARSED_CHUNK *pc)
+void print_chunk(PARSED_CHUNK* pc)
 {
     while(pc != NULL)
     {
@@ -96,7 +96,7 @@ void print_chunk(PARSED_CHUNK *pc)
     }
 }
 
-void free_chunk(PARSED_CHUNK *pc)
+void free_chunk(PARSED_CHUNK* pc)
 {
     PARSED_CHUNK *npc;
     while(pc != NULL)
@@ -108,7 +108,7 @@ void free_chunk(PARSED_CHUNK *pc)
     }
 }
 
-PARSED_CHUNK *convert_to_large_alpha(char* token)
+PARSED_CHUNK* convert_to_large_alpha(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -140,7 +140,7 @@ PARSED_CHUNK *convert_to_large_alpha(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_large_epsilon(char* token)
+PARSED_CHUNK* convert_to_large_epsilon(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -157,7 +157,7 @@ PARSED_CHUNK *convert_to_large_epsilon(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_large_eta(char* token)
+PARSED_CHUNK* convert_to_large_eta(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -189,7 +189,7 @@ PARSED_CHUNK *convert_to_large_eta(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_large_iota(char* token)
+PARSED_CHUNK* convert_to_large_iota(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -210,7 +210,7 @@ PARSED_CHUNK *convert_to_large_iota(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_large_omicron(char* token)
+PARSED_CHUNK* convert_to_large_omicron(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -227,7 +227,7 @@ PARSED_CHUNK *convert_to_large_omicron(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_large_upsilon(char* token)
+PARSED_CHUNK* convert_to_large_upsilon(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -244,7 +244,7 @@ PARSED_CHUNK *convert_to_large_upsilon(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_large_omega(char* token)
+PARSED_CHUNK* convert_to_large_omega(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -276,7 +276,7 @@ PARSED_CHUNK *convert_to_large_omega(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_small_alpha(char* token)
+PARSED_CHUNK* convert_to_small_alpha(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -308,7 +308,7 @@ PARSED_CHUNK *convert_to_small_alpha(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_small_epsilon(char* token)
+PARSED_CHUNK* convert_to_small_epsilon(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -325,7 +325,7 @@ PARSED_CHUNK *convert_to_small_epsilon(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_small_eta(char* token)
+PARSED_CHUNK* convert_to_small_eta(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -357,7 +357,7 @@ PARSED_CHUNK *convert_to_small_eta(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_small_iota(char* token)
+PARSED_CHUNK* convert_to_small_iota(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -381,7 +381,7 @@ PARSED_CHUNK *convert_to_small_iota(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_small_omicron(char* token)
+PARSED_CHUNK* convert_to_small_omicron(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -398,7 +398,7 @@ PARSED_CHUNK *convert_to_small_omicron(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_small_upsilon(char* token)
+PARSED_CHUNK* convert_to_small_upsilon(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -422,7 +422,7 @@ PARSED_CHUNK *convert_to_small_upsilon(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_small_omega(char* token)
+PARSED_CHUNK* convert_to_small_omega(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -455,7 +455,7 @@ PARSED_CHUNK *convert_to_small_omega(char* token)
 }
 
 
-PARSED_CHUNK *convert_to_large_kappa(char* token)
+PARSED_CHUNK* convert_to_large_kappa(char* token)
 {
     if (includes_char(token, 'h')) {
         return create_chunk("\u03A7"); // large khi
@@ -464,7 +464,7 @@ PARSED_CHUNK *convert_to_large_kappa(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_large_pi(char* token)
+PARSED_CHUNK* convert_to_large_pi(char* token)
 {
     if (includes_char(token, 'h')) {
         return create_chunk("\u03A6"); // large phi
@@ -475,7 +475,7 @@ PARSED_CHUNK *convert_to_large_pi(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_large_rho(char* token)
+PARSED_CHUNK* convert_to_large_rho(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -485,7 +485,7 @@ PARSED_CHUNK *convert_to_large_rho(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_large_tau(char* token)
+PARSED_CHUNK* convert_to_large_tau(char* token)
 {
     if (includes_char(token, 'h')) {
         return create_chunk("\u0398"); // large theta
@@ -495,7 +495,7 @@ PARSED_CHUNK *convert_to_large_tau(char* token)
 }
 
 
-PARSED_CHUNK *convert_to_small_kappa(char* token)
+PARSED_CHUNK* convert_to_small_kappa(char* token)
 {
     if (includes_char(token, 'h')) {
         return create_chunk("\u03C7"); // small khi
@@ -504,7 +504,7 @@ PARSED_CHUNK *convert_to_small_kappa(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_small_pi(char* token)
+PARSED_CHUNK* convert_to_small_pi(char* token)
 {
     if (includes_char(token, 'h')) {
         return create_chunk("\u03C6"); // small phi
@@ -515,7 +515,7 @@ PARSED_CHUNK *convert_to_small_pi(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_small_rho(char* token)
+PARSED_CHUNK* convert_to_small_rho(char* token)
 {
     int score = calc_score(token);
     switch (score)
@@ -526,7 +526,7 @@ PARSED_CHUNK *convert_to_small_rho(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_small_sigma(char* token)
+PARSED_CHUNK* convert_to_small_sigma(char* token)
 {
     if (includes_char(token, 's')) {
         return create_chunk("\u03C2"); // final sigma
@@ -535,7 +535,7 @@ PARSED_CHUNK *convert_to_small_sigma(char* token)
     }
 }
 
-PARSED_CHUNK *convert_to_small_tau(char* token)
+PARSED_CHUNK* convert_to_small_tau(char* token)
 {
     if (includes_char(token, 'h')) {
         return create_chunk("\u03B8"); // small theta
